@@ -4,9 +4,23 @@
         <meta charset="utf-8">
         <title>First Form</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="stylesh.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        function check()
+        {
+            let n = document.forms["fform"]["name"].value;
+            let c = document.forms["fform"]["contact"].value;
+            let e = document.forms["fform"]["email"].value;
+            let p = document.forms["fform"]["pass"].value;
+            if(n==""||c==""||e==""||p=="")
+            {
+                document.getElementById('alert').className="alert alert-danger";
+            }
+            return false;
+        }
+    </script> 
     </head>
-<!-- kjfdsanflandnalknfknaknsa -->
 <body>
     <div class="container">
         <div class="jumbotron">
@@ -18,23 +32,26 @@
             </a><span class="badge badge-secondary">Form</span></h1>
             <p class="text-primary">This is a simple form.</p>
         </div>
-        <form>
+        <form name="fform" onsubmit="return check()" method ="post"> 
             <div class="form-group">
                 <div class="w-100"></div>
                 <div class="w-100"></div>
                 <div class="w-100"></div>
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="text" class="form-control" name="name" placeholder="Name" autofocus>
+                            <input type="text" class="form-control" name="name" placeholder="Name" autofocus>
                     </div>
                     <div class="col-md-5">
-                        <input type="tel" class="form-control" placeholder="Contact"><div class="w-100"></div>
+                        <input type="tel" class="form-control" name="contact" placeholder="Contact"><div class="w-100"></div>
                     </div>
                     <div class="w-100"></div>
-                    <div class="col-md-5"><input type="email" class="form-control" placeholder="Email" name="email">
+                    <div class="col-md-5">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
                     </div>
-                    <div class="col-md-5"><input type="password" class="form-control" placeholder="Password" name="pass"><br></div>
-                    <div class="col-md-12"><label for="Age">Age : </label> 13-19<input type="radio" name="age" value="teen" checked >
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" placeholder="Password" name="pass"><br></div>
+                    <div class="col-md-12">
+                        <label for="Age">Age : </label> 13-19<input type="radio" name="age" value="teen" checked >
                         20-60<input type="radio" name="age" value="adult">
                         >60<input type="radio" name="age" value="senior">
                     </div>
@@ -46,15 +63,13 @@
                     <div class="col-md-6">
                         <div class="btn-group">
                             <input type="submit" class="btn btn-success">
-                            <input type="reset" class="btn btn-warning">
+                            <input type="reset" class="btn btn-warning" onclick="document.getElementById('alert').className='alert alert-warning'">
                         </div> 
-                    </div>
-                    <div class="col-md-6">
                         <a href="/home/successive6/Downloads/skippage.html" class="btn btn-info">Skip</a>
                     </div>
                 </div><br>
                 </div>
-                <p style="text-align: center"><div class="alert alert-danger" role="alert">All fields are mandatory.</div></p>
+                <p id="alert" class="alert alert-warning">All fields are mandatory.</p>
         </form>
     </div>
     

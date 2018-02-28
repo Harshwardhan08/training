@@ -1,0 +1,6 @@
+#alert{
+    text-align: center;
+}
+:focus{
+    background-color: chocolate;
+}
