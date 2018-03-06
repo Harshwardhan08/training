@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>update dropdown</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script>
+            var t = new Array();
+            t.push('Choose...');
+            function addt(){
+                let add = document.forms["sform"]["add"].value;
+                t.push(add);
+                common();
+                return false;
+            }
+            function delt()
+            {
+                let del = document.forms["sform"]["del"].value;
+                t.splice(t.indexOf(del),1);
+                common();
+                return false;
+            }
+            function common()
+            {
+                
+                var select = document.getElementById('trainee');
+                select.options.length = 0;
+                for(var i =0;i<t.length;i++){
+                    var option = document.createElement('option');
+                    option.innerHTML = t[i];
+                    option.value= t[i];
+                    select.appendChild(option);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1><span class="badge badge-dark" >Task 5</span></h1>
+            </div>
+            <form name="sform" method="POST" >
+                <div class="form-group">
+                    <div class="form-row">
+                        <br>
+                        <div class="w-100"></div>
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <label for="dropdown" class="form-control">Select Trainee </label>
+                        </div>
+                        <div class="col-4">
+                            <select id="trainee" class="btn btn-info dropdown-toggle custom-select">
+                                <option selected>Choose...</option>
+                            </select>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="w-100"></div>
+                        <br><br><br>
+                        <div class="col-md-6">
+                            <label for="add">Trainee to add</label>
+                            <input type="text" name="add" class="form-control">
+                            <br>
+                            <div class="w-100"></div>
+                            <input type="button" class="btn btn-primary" onclick="addt()" value="Submit">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="add">Trainee to delete</label>
+                            <input type="text" name="del" class="form-control">
+                            <br>
+                            <div class="w-100"></div>
+                            <input type="button" class="btn btn-warning" onclick="delt()" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    </body>
+</html>
